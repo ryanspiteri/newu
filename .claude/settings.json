@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Running command in $(pwd)'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_FILE_PATHS\" | grep -qE '\\.js$|\\.ts$'; then node --check $CLAUDE_FILE_PATHS 2>&1 && echo 'JS syntax OK' || echo 'WARNING: JS syntax error detected'; fi"
+          }
+        ]
+      }
+    ]
+  }
+}
