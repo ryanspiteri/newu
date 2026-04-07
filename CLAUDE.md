@@ -30,3 +30,12 @@ Direct, no fluff, results-focused. Speaks to men with busy lives. Short sentence
 ## Goals
 - 100,000 app downloads
 - Funnel: SEO blog -> macro calculator -> email capture -> app download -> subscription
+
+
+## Email Access Rule — CRITICAL
+
+When accessing any Gmail inbox via IMAP:
+- ALWAYS use `BODY.PEEK[]` or `BODY.PEEK[HEADER]` — NEVER use `RFC822`
+- NEVER mark any email as read
+- NEVER call `mail.store(eid, '+FLAGS', '\Seen')`
+- Emails must remain in exactly the same read/unread state as before you accessed them
